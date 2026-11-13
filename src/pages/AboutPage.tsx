@@ -42,18 +42,18 @@ export const AboutPage: React.FC = () => {
             </div>
 
             {/* 3 Metric Badges */}
-            <div className="grid grid-cols-3 gap-4 text-center">
-              <div className="bg-[#f8fafc] p-4 rounded-2xl border border-gray-100">
-                <span className="block text-2xl font-bold text-[#fba311] font-['Quicksand']">1995</span>
-                <span className="text-xs text-gray-600 font-semibold">Founded</span>
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
+              <div className="bg-[#f8fafc] p-3 sm:p-4 rounded-2xl border border-gray-100">
+                <span className="block text-xl sm:text-2xl font-bold text-[#fba311] font-['Quicksand']">2009</span>
+                <span className="text-[11px] sm:text-xs text-gray-600 font-semibold">Founded</span>
               </div>
-              <div className="bg-[#f8fafc] p-4 rounded-2xl border border-gray-100">
-                <span className="block text-2xl font-bold text-[#001837] font-['Quicksand']">100%</span>
-                <span className="text-xs text-gray-600 font-semibold">Contract-Free</span>
+              <div className="bg-[#f8fafc] p-3 sm:p-4 rounded-2xl border border-gray-100">
+                <span className="block text-xl sm:text-2xl font-bold text-[#001837] font-['Quicksand']">100%</span>
+                <span className="text-[11px] sm:text-xs text-gray-600 font-semibold">Contract-Free</span>
               </div>
-              <div className="bg-[#f8fafc] p-4 rounded-2xl border border-gray-100">
-                <span className="block text-2xl font-bold text-[#fba311] font-['Quicksand']">24/7</span>
-                <span className="text-xs text-gray-600 font-semibold">Client Hotline</span>
+              <div className="bg-[#f8fafc] p-3 sm:p-4 rounded-2xl border border-gray-100">
+                <span className="block text-xl sm:text-2xl font-bold text-[#fba311] font-['Quicksand']">24/7</span>
+                <span className="text-[11px] sm:text-xs text-gray-600 font-semibold">Client Hotline</span>
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@ export const AboutPage: React.FC = () => {
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold font-['Quicksand'] text-[#001837] leading-tight">
-              Three Decades of Reliable Facility Cleanliness
+              Over 15 Years of Dependable Facility Cleanliness
             </h2>
 
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">

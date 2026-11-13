@@ -136,7 +136,7 @@ export const HomePage: React.FC = () => {
     return () => window.removeEventListener('resize', updateItemsPerView);
   }, []);
 
-  // Hero Slides matching Xclean Demo 1 Screenshot
+  // Hero Slides matching North Shore Clean commercial services & Xclean Demo 1 visual style
   const slides = [
     {
       eyebrow: "ULTIMATE CLEAN SOLUTIONS",
@@ -147,7 +147,7 @@ export const HomePage: React.FC = () => {
       btnLink: "/services"
     },
     {
-      eyebrow: "YOUR CLEAN, OUR GUARANTEE.",
+      eyebrow: "YOUR CLEAN, OUR GUARANTEE",
       title: "Cleaning with a\npersonal touch",
       subtitle: "Hire us! We are a professional commercial cleaning company offering customized facility care.",
       image: "/slide-a-01.jpg",
@@ -273,11 +273,11 @@ export const HomePage: React.FC = () => {
     <div className="flex flex-col bg-white">
       
       {/* 1. HERO SLIDER + 3 HIGHLIGHT CARDS ON UNIFIED LIGHT GREY (#f0f2f4) FRAME (Exact Xclean Demo 1 Header-Hero-Cards Area) */}
-      <div className="bg-[#f0f2f4] w-full pt-4 sm:pt-6 pb-12 sm:pb-16 px-4 sm:px-8 lg:px-10">
-        <div className="max-w-[1720px] mx-auto w-full space-y-6 sm:space-y-8">
+      <div className="bg-[#f0f2f4] w-full pt-3 sm:pt-6 pb-8 sm:pb-16 px-3 sm:px-6 lg:px-10 overflow-hidden">
+        <div className="max-w-[1720px] mx-auto w-full space-y-5 sm:space-y-8">
 
           {/* HERO SLIDER SECTION (Exact 700px Height, Rounded 30px Container, Staggered Animations) */}
-          <div className="relative rounded-[30px] sm:rounded-[32px] overflow-hidden min-h-[580px] sm:min-h-[660px] lg:h-[700px] flex items-center bg-[#001837] shadow-xl">
+          <div className="relative rounded-2xl sm:rounded-[32px] overflow-hidden min-h-[480px] sm:min-h-[600px] lg:h-[700px] flex items-center bg-[#001837] shadow-xl">
             
             {/* Background Image with animated Pan/Zoom matching Smart Slider 3 */}
             <div 
@@ -286,50 +286,49 @@ export const HomePage: React.FC = () => {
               style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
             />
 
-            {/* Left Gradient Overlay: Strong dark on left for high-contrast white text, clear & vibrant on the right for cleaner image */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#001837]/92 via-[#001837]/75 sm:via-[#001837]/45 via-60% to-transparent pointer-events-none" />
+            {/* Left Gradient Overlay: Strong contrast for white text on left, smoothly opening up to make the background image slightly more visible */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#001837]/88 via-[#001837]/60 via-40% to-[#001837]/25 sm:to-transparent pointer-events-none" />
 
             {/* Hero Content with Staggered Keyframe Animations */}
             <div 
               key={`content-${slideKey}`}
-              className="relative z-10 max-w-[850px] px-6 sm:px-14 lg:px-20 py-16 text-white space-y-6"
+              className="relative z-10 max-w-[850px] px-5 sm:px-12 lg:px-20 py-10 sm:py-16 text-white space-y-4 sm:space-y-6"
             >
               
               {/* 1. Eyebrow Tag with official double gold sparkle icon (Animation delay 0.3s) */}
-              <div className="hero-ani-eyebrow flex items-center gap-3">
-                <span className="text-xs sm:text-sm font-semibold tracking-[1px] uppercase text-white font-['Open_Sans']">
+              <div className="hero-ani-eyebrow flex items-center gap-2 sm:gap-3">
+                <span className="text-[11px] sm:text-sm font-semibold tracking-[0.5px] sm:tracking-[1px] uppercase text-white font-['Open_Sans']">
                   {slides[currentSlide].eyebrow}
                 </span>
                 <img 
                   src="/slide-a-icon.png" 
                   alt="sparkle" 
-                  className="w-10 sm:w-12 h-auto object-contain inline-block hero-ani-icon" 
+                  className="w-8 sm:w-12 h-auto object-contain inline-block hero-ani-icon" 
                 />
               </div>
 
               {/* 2. Massive Heading (pbmit_slide_left Animation delay 0.9s, Pure White #ffffff) */}
               <h1 
-                className="hero-ani-heading text-4xl sm:text-6xl lg:text-[72px] xl:text-[78px] font-bold font-['Quicksand'] leading-[1.04] !text-white tracking-tight"
+                className="hero-ani-heading text-3xl sm:text-5xl lg:text-[70px] xl:text-[76px] font-bold font-['Quicksand'] leading-[1.08] !text-white tracking-tight"
                 style={{ color: '#ffffff' }}
               >
                 {slides[currentSlide].title.split('\n').map((line, i) => (
-                  <React.Fragment key={i}>
+                  <span key={i} className="block">
                     {line}
-                    {i < slides[currentSlide].title.split('\n').length - 1 && <br />}
-                  </React.Fragment>
+                  </span>
                 ))}
               </h1>
 
               {/* 3. Subtitle Paragraph (slide_up Animation delay 1.4s) */}
-              <p className="hero-ani-subtitle text-base sm:text-lg text-white/90 font-['Open_Sans'] font-normal leading-relaxed max-w-lg">
+              <p className="hero-ani-subtitle text-sm sm:text-base lg:text-lg text-white/90 font-['Open_Sans'] font-normal leading-relaxed max-w-lg">
                 {slides[currentSlide].subtitle}
               </p>
 
               {/* 4. Orange Pill Button: Our Services ↗ (slide_up Animation delay 1.7s) */}
-              <div className="hero-ani-btn pt-2">
+              <div className="hero-ani-btn pt-1 sm:pt-2">
                 <Link 
                   to={slides[currentSlide].btnLink} 
-                  className="inline-flex items-center gap-2.5 bg-[#fba311] hover:bg-[#001837] text-white font-['Quicksand'] font-bold text-base px-9 py-5 rounded-[50px] transition-all duration-300 shadow-lg shadow-[#fba311]/25 hover:shadow-xl hover:translate-y-[-2px] group"
+                  className="inline-flex items-center gap-2 bg-[#fba311] hover:bg-[#001837] text-white font-['Quicksand'] font-bold text-sm sm:text-base px-7 py-3.5 sm:px-9 sm:py-4.5 rounded-[50px] transition-all duration-300 shadow-lg shadow-[#fba311]/25 hover:shadow-xl hover:translate-y-[-2px] group"
                 >
                   <span>{slides[currentSlide].btnText}</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -371,11 +370,11 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* 2. THREE HIGHLIGHT CARDS (Directly under Hero on Same Light Grey Background, Matching Image 2) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 sm:gap-6 pt-2">
             
             {/* Card 1 (Col span 4): Free Evaluation Of Your Cleaning Needs */}
             <div 
-              className="lg:col-span-4 bg-white rounded-[30px] p-8 sm:p-9 shadow-sm relative overflow-hidden flex flex-col justify-between group card-hover-xclean min-h-[220px]"
+              className="md:col-span-1 lg:col-span-4 bg-white rounded-[30px] p-7 sm:p-9 shadow-sm relative overflow-hidden flex flex-col justify-between group card-hover-xclean min-h-[220px]"
               style={{ 
                 backgroundImage: 'url(/icon-box-bg.jpg)', 
                 backgroundPosition: 'center right', 
@@ -383,7 +382,7 @@ export const HomePage: React.FC = () => {
                 backgroundSize: 'cover' 
               }}
             >
-              <div className="relative z-10 space-y-3 max-w-[65%]">
+              <div className="relative z-10 space-y-3 max-w-[80%] sm:max-w-[65%]">
                 <div className="eyebrow-xclean">
                   <span>✦</span>
                   <span>FREE SERVICES</span>
@@ -406,10 +405,10 @@ export const HomePage: React.FC = () => {
             </div>
 
             {/* Card 2 (Col span 3): Solid Orange 520 + Card matching Image 2 */}
-            <div className="lg:col-span-3 bg-[#fba311] rounded-[30px] p-8 sm:p-9 shadow-sm flex flex-col justify-between card-hover-xclean min-h-[220px] text-[#001837] relative overflow-hidden">
+            <div className="md:col-span-1 lg:col-span-3 bg-[#fba311] rounded-[30px] p-7 sm:p-9 shadow-sm flex flex-col justify-between card-hover-xclean min-h-[220px] text-[#001837] relative overflow-hidden">
               <div className="flex items-baseline gap-2 relative z-10">
                 <span className="text-5xl sm:text-6xl font-extrabold text-outline-white font-['Quicksand'] tracking-tight">
-                  520
+                  15
                 </span>
                 <span className="text-5xl sm:text-6xl font-black text-[#001837] font-['Quicksand']">
                   +
@@ -418,14 +417,14 @@ export const HomePage: React.FC = () => {
 
               <div className="pt-4 relative z-10">
                 <p className="text-base sm:text-lg font-bold font-['Quicksand'] text-[#001837] leading-snug">
-                  Professional and Experienced staff ready to help you
+                  Years of trusted commercial cleaning experience
                 </p>
               </div>
             </div>
 
             {/* Card 3 (Col span 5): Easy Booking & Fast Communication matching Image 2 */}
             <div 
-              className="lg:col-span-5 bg-white rounded-[30px] p-8 sm:p-9 shadow-sm relative overflow-hidden flex flex-col justify-between group card-hover-xclean min-h-[220px]"
+              className="md:col-span-2 lg:col-span-5 bg-white rounded-[30px] p-7 sm:p-9 shadow-sm relative overflow-hidden flex flex-col justify-between group card-hover-xclean min-h-[220px]"
               style={{ 
                 backgroundImage: 'url(/icon-box-bg-02.png)', 
                 backgroundPosition: 'center right', 
@@ -433,12 +432,12 @@ export const HomePage: React.FC = () => {
                 backgroundSize: 'cover' 
               }}
             >
-              <div className="relative z-10 space-y-2 max-w-[65%]">
+              <div className="relative z-10 space-y-2 max-w-[80%] sm:max-w-[65%]">
                 <h3 className="text-xl sm:text-2xl font-bold font-['Quicksand'] text-[#fba311] leading-snug">
                   Easy Booking & Fast Communication
                 </h3>
                 <p className="text-xs text-gray-500 font-medium">
-                  Direct hotline & 2-hour quote turnaround.
+                  Direct owner hotline & 24-hour walkthrough turnaround.
                 </p>
               </div>
 
@@ -460,15 +459,15 @@ export const HomePage: React.FC = () => {
       </div>
 
       {/* 3. WHY CHOOSE US (Exact Match to Reference Image 2: No clash, vacuum placed on the left, 3-line heading, plenty of space before marquee) */}
-      <section className="pt-20 sm:pt-28 pb-28 sm:pb-36 px-4 sm:px-8 lg:px-12 max-w-[1720px] mx-auto w-full relative overflow-visible">
+      <section className="pt-16 sm:pt-28 pb-20 sm:pb-36 px-4 sm:px-8 lg:px-12 max-w-[1720px] mx-auto w-full relative overflow-visible">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start relative z-10">
           
           {/* Left Column: Vacuum Illustration + 3-Line Heading + Outline Button */}
           <div className="lg:col-span-6 relative pt-2">
             
             {/* Official Canister Vacuum Illustration - positioned to the left of the content */}
-            <div className="absolute -left-6 sm:-left-10 lg:-left-12 xl:-left-14 bottom-[-10px] lg:bottom-[-20px] pointer-events-none select-none z-0 hidden md:block">
+            <div className="absolute -left-6 sm:-left-10 lg:-left-12 xl:-left-14 bottom-[-10px] lg:bottom-[-20px] pointer-events-none select-none z-0 hidden lg:block">
               <img 
                 src="/about-bg-icon.png" 
                 alt="Vacuum Illustration" 
@@ -477,7 +476,7 @@ export const HomePage: React.FC = () => {
             </div>
 
             {/* Text & Button with left offset so it sits cleanly beside the vacuum body, matching Reference Image 2 */}
-            <div className="relative z-10 md:pl-28 lg:pl-36 xl:pl-44 space-y-6">
+            <div className="relative z-10 pl-0 lg:pl-36 xl:pl-44 space-y-5 sm:space-y-6">
               
               {/* Eyebrow with Official Orange Vector Broom/Sweeper Icon matching Xclean Demo 1 */}
               <div className="flex items-center gap-2">
@@ -492,18 +491,18 @@ export const HomePage: React.FC = () => {
                 </span>
               </div>
 
-              {/* Exact 3-Line Crisp Heading without orphan words */}
+              {/* Exact 3-Line Crisp Heading with responsive line wraps */}
               <h2 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[50px] font-bold font-['Quicksand'] text-[#001837] leading-[1.15] tracking-tight">
-                <span className="block whitespace-nowrap">We work many fields to</span>
-                <span className="block whitespace-nowrap">clean your surrounding</span>
+                <span className="block sm:whitespace-nowrap">We work many fields to</span>
+                <span className="block sm:whitespace-nowrap">clean your surrounding</span>
                 <span className="block">area</span>
               </h2>
 
               {/* Pill Outline Button: Know More ↗ */}
-              <div className="pt-4 sm:pt-6">
+              <div className="pt-2 sm:pt-4">
                 <Link 
                   to="/about" 
-                  className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full border border-[#001837] text-[#001837] font-['Quicksand'] font-bold text-sm hover:bg-[#001837] hover:text-white transition-all duration-300 group shadow-sm hover:shadow bg-white"
+                  className="inline-flex items-center gap-2.5 px-7 sm:px-8 py-3 sm:py-3.5 rounded-full border border-[#001837] text-[#001837] font-['Quicksand'] font-bold text-sm hover:bg-[#001837] hover:text-white transition-all duration-300 group shadow-sm hover:shadow bg-white"
                 >
                   <span>Know More</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -515,13 +514,13 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Right Column: Exact 2x2 Feature Grid matching Image 1 & 2 */}
-          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-x-10 lg:gap-x-12 gap-y-10 lg:gap-y-12">
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-x-8 sm:gap-x-10 lg:gap-x-12 gap-y-8 sm:gap-y-10 lg:gap-y-12">
             
             {/* Feature 1: Experienced Staff */}
             <div className="space-y-3">
-              <div className="w-16 h-16 rounded-[20px] bg-[#f0f2f4] text-[#001837] flex items-center justify-center">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-[20px] bg-[#f0f2f4] text-[#001837] flex items-center justify-center">
                 {/* Person walking with mop / cleaning cart icon */}
-                <svg className="w-8 h-8 text-[#001837]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-7 h-7 sm:w-8 sm:h-8 text-[#001837]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="9" cy="5" r="2" />
                   <path d="M7 21v-6l2-2 3 3v5" />
                   <path d="M12 11l-3-3H6v5" />
@@ -531,36 +530,36 @@ export const HomePage: React.FC = () => {
                 </svg>
               </div>
               <h3 className="text-xl sm:text-[22px] font-bold font-['Quicksand'] text-[#001837]">
-                Experienced Staff
+                Owner-Supervised Staff
               </h3>
               <p className="text-[13px] sm:text-[14px] text-gray-500 font-['Open_Sans'] leading-relaxed">
-                Office Services Sweeping Mopping Kitchen Cleaning, Equipped with the most modern appliances Services
+                Direct oversight by Jerry Sheehan ensuring high standards in every commercial facility across the North Shore.
               </p>
             </div>
 
             {/* Feature 2: Natural Products */}
             <div className="space-y-3">
-              <div className="w-16 h-16 rounded-[20px] bg-[#f0f2f4] text-[#001837] flex items-center justify-center">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-[20px] bg-[#f0f2f4] text-[#001837] flex items-center justify-center">
                 {/* Feather duster / cleaning brush icon */}
-                <svg className="w-8 h-8 text-[#001837]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-7 h-7 sm:w-8 sm:h-8 text-[#001837]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M14 4c2.5 0 5 2.5 5 5 0 3-2.5 6-6 7l-7 7-2-2 7-7c-1-3.5 2-6 5-6h3z" />
                   <path d="M15 9l-4 4" />
                   <path d="M18 6l-5 5" />
                 </svg>
               </div>
               <h3 className="text-xl sm:text-[22px] font-bold font-['Quicksand'] text-[#001837]">
-                Natural Products
+                Green Clean Certified
               </h3>
               <p className="text-[13px] sm:text-[14px] text-gray-500 font-['Open_Sans'] leading-relaxed">
-                cleaning and sanitizing may be the most important aspects of a clean and stored in a clean, sanitary manner
+                Eco-friendly, non-toxic commercial hospital-grade cleaning and sanitizing agents safe for staff and guests.
               </p>
             </div>
 
             {/* Feature 3: Fast Service */}
             <div className="space-y-3">
-              <div className="w-16 h-16 rounded-[20px] bg-[#f0f2f4] text-[#001837] flex items-center justify-center">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-[20px] bg-[#f0f2f4] text-[#001837] flex items-center justify-center">
                 {/* Cleaning machine / fast buffer equipment icon */}
-                <svg className="w-8 h-8 text-[#001837]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-7 h-7 sm:w-8 sm:h-8 text-[#001837]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 17h16" />
                   <path d="M4 17a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4" />
                   <path d="M8 13V7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6" />
@@ -568,18 +567,18 @@ export const HomePage: React.FC = () => {
                 </svg>
               </div>
               <h3 className="text-xl sm:text-[22px] font-bold font-['Quicksand'] text-[#001837]">
-                Fast Service
+                24/7 Rapid Response
               </h3>
               <p className="text-[13px] sm:text-[14px] text-gray-500 font-['Open_Sans'] leading-relaxed">
-                We provide you the best service quality with best rate all the time no matter you're looking for residential or commercial
+                Always on call for emergency spills, disinfection, and quick-turnaround deep janitorial requirements.
               </p>
             </div>
 
             {/* Feature 4: Best Equipment */}
             <div className="space-y-3">
-              <div className="w-16 h-16 rounded-[20px] bg-[#f0f2f4] text-[#001837] flex items-center justify-center">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-[20px] bg-[#f0f2f4] text-[#001837] flex items-center justify-center">
                 {/* Cleaning vacuum and spray kit icon */}
-                <svg className="w-8 h-8 text-[#001837]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-7 h-7 sm:w-8 sm:h-8 text-[#001837]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="5" y="11" width="6" height="10" rx="1" />
                   <path d="M8 11V7a2 2 0 0 1 2-2h1" />
                   <rect x="13" y="7" width="6" height="14" rx="2" />
@@ -588,10 +587,10 @@ export const HomePage: React.FC = () => {
                 </svg>
               </div>
               <h3 className="text-xl sm:text-[22px] font-bold font-['Quicksand'] text-[#001837]">
-                Best Equipment
+                Industrial Equipment
               </h3>
               <p className="text-[13px] sm:text-[14px] text-gray-500 font-['Open_Sans'] leading-relaxed">
-                We make sure that we had all the tools and equipment you need to provide high-quality service to our clients
+                High-power rotary floor scrubbers, commercial HEPA vacuums, and hot water extraction machinery.
               </p>
             </div>
 
@@ -601,45 +600,33 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 4. GIANT RUNNING MARQUEE BANNER (Matching Xclean Demo 1 / Image 3: Exact pbmit marquee animation + hover liquid fill reveal) */}
-      <section className="py-8 sm:py-14 bg-white overflow-hidden border-y border-gray-100 select-none">
+      <section className="py-6 sm:py-14 bg-white overflow-hidden border-y border-gray-100 select-none">
         <div className="marquee-track-xclean whitespace-nowrap">
           {/* Track repeated twice for mathematical seamless continuous scroll */}
           {[
-            { text: "Sweeping", solid: true },
-            { text: "Cleaning", solid: false },
-            { text: "Moping", solid: false },
-            { text: "Janitorial", solid: true },
-            { text: "Sanitation", solid: false },
-            { text: "Vacuum", solid: false },
-            { text: "Sweeping", solid: true },
-            { text: "Cleaning", solid: false },
-            { text: "Moping", solid: false },
-            { text: "Janitorial", solid: true },
-            { text: "Sanitation", solid: false },
-            { text: "Vacuum", solid: false },
-            { text: "Sweeping", solid: true },
-            { text: "Cleaning", solid: false },
-            { text: "Moping", solid: false },
-            { text: "Janitorial", solid: true },
-            { text: "Sanitation", solid: false },
-            { text: "Vacuum", solid: false },
-            { text: "Sweeping", solid: true },
-            { text: "Cleaning", solid: false },
-            { text: "Moping", solid: false },
-            { text: "Janitorial", solid: true },
-            { text: "Sanitation", solid: false },
-            { text: "Vacuum", solid: false },
+            { text: "Commercial Cleaning", solid: true },
+            { text: "Floor Stripping", solid: false },
+            { text: "Janitorial Services", solid: false },
+            { text: "Carpet Extraction", solid: true },
+            { text: "Medical Disinfection", solid: false },
+            { text: "Day Porter", solid: false },
+            { text: "Commercial Cleaning", solid: true },
+            { text: "Floor Stripping", solid: false },
+            { text: "Janitorial Services", solid: false },
+            { text: "Carpet Extraction", solid: true },
+            { text: "Medical Disinfection", solid: false },
+            { text: "Day Porter", solid: false },
           ].map((item, idx) => (
             <React.Fragment key={idx}>
               <span 
                 data-text={item.text}
-                className={`marquee-word-xclean text-6xl sm:text-7xl lg:text-[88px] font-bold tracking-tight ${
+                className={`marquee-word-xclean text-4xl sm:text-7xl lg:text-[88px] font-bold tracking-tight ${
                   item.solid ? 'marquee-word-solid' : 'marquee-word-outline'
                 }`}
               >
                 {item.text}
               </span>
-              <span className="text-3xl sm:text-5xl text-[#fba311] px-6 sm:px-10 select-none shrink-0">
+              <span className="text-2xl sm:text-5xl text-[#fba311] px-4 sm:px-10 select-none shrink-0">
                 ✦
               </span>
             </React.Fragment>
@@ -657,13 +644,13 @@ export const HomePage: React.FC = () => {
               <img 
                 src="/sticky-img-about.jpg" 
                 alt="North Shore Clean Staff" 
-                className="w-full h-[580px] sm:h-[660px] lg:h-[720px] object-cover object-center"
+                className="w-full h-[320px] sm:h-[480px] lg:h-[720px] object-cover object-center"
               />
             </div>
           </div>
 
           {/* Right: Scaled-up Eyebrow + Heading + Content + Large Circular Gauges + Subheading + Checkmarks */}
-          <div className="lg:col-span-6 space-y-7">
+          <div className="lg:col-span-6 space-y-6 sm:space-y-7">
             
             {/* Eyebrow with Orange Vector Broom Icon */}
             <div className="flex items-center gap-2.5">
@@ -680,7 +667,7 @@ export const HomePage: React.FC = () => {
 
             {/* Main Heading - Scaled up */}
             <h2 className="text-3xl sm:text-5xl lg:text-[52px] xl:text-[56px] font-bold font-['Quicksand'] text-[#001837] leading-[1.12] tracking-tight">
-              Most awarded cleaning company since 1995.
+              North Shore's trusted commercial cleaners since 2009.
             </h2>
 
             {/* Primary Paragraph - Scaled up */}
@@ -689,7 +676,7 @@ export const HomePage: React.FC = () => {
             </p>
 
             {/* TWO LARGE CIRCULAR PROGRESS GAUGES (85% & 70%) MATCHING IMAGE 1 */}
-            <div className="flex items-center gap-8 sm:gap-14 pt-3 pb-3">
+            <div className="flex flex-wrap items-center gap-6 sm:gap-14 pt-3 pb-3">
               
               {/* Gauge 1: 85% Office Cleaning */}
               <div className="flex items-center gap-4 sm:gap-5">
@@ -1289,7 +1276,7 @@ export const HomePage: React.FC = () => {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
             
             {/* Column 1: Small Business (White Card) */}
-            <div className="lg:col-span-4">
+            <div className="order-2 lg:order-1 lg:col-span-4">
               <div className="xclean-ptable-card bg-white shadow-sm">
                 <div className="pbmit-head-wrap border-b border-gray-100">
                   <h3 className="text-lg font-bold font-['Quicksand'] text-[#001837] mb-2">
@@ -1330,7 +1317,7 @@ export const HomePage: React.FC = () => {
                 <div className="pbmit-price-btn-wrap">
                   <Link
                     to="/contact?plan=small-business"
-                    className="inline-flex items-center gap-2.5 bg-[#001837] hover:bg-[#fba311] text-white px-8 py-3.5 sm:py-4 rounded-full font-['Quicksand'] font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-md group whitespace-nowrap"
+                    className="inline-flex items-center gap-2.5 bg-[#001837] hover:bg-[#fba311] text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-['Quicksand'] font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-md group whitespace-nowrap"
                   >
                     <span>Purchase Now</span>
                     <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -1340,7 +1327,7 @@ export const HomePage: React.FC = () => {
             </div>
 
             {/* Column 2: Large Business (Featured - Dark Navy Card #001837) */}
-            <div className="lg:col-span-4">
+            <div className="order-3 lg:order-2 lg:col-span-4">
               <div className="xclean-ptable-card bg-[#001837] shadow-xl text-white">
                 <div className="pbmit-head-wrap border-b border-white/15">
                   <h3 className="text-lg font-bold font-['Quicksand'] text-white mb-2">
@@ -1381,7 +1368,7 @@ export const HomePage: React.FC = () => {
                 <div className="pbmit-price-btn-wrap">
                   <Link
                     to="/contact?plan=large-business"
-                    className="inline-flex items-center gap-2.5 bg-[#fba311] hover:bg-white text-white hover:text-[#001837] px-8 py-3.5 sm:py-4 rounded-full font-['Quicksand'] font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-md group whitespace-nowrap"
+                    className="inline-flex items-center gap-2.5 bg-[#fba311] hover:bg-white text-white hover:text-[#001837] px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-['Quicksand'] font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-md group whitespace-nowrap"
                   >
                     <span>Purchase Now</span>
                     <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -1391,7 +1378,7 @@ export const HomePage: React.FC = () => {
             </div>
 
             {/* Column 3: Section Heading & Content on the Right */}
-            <div className="lg:col-span-4 pl-0 lg:pl-6 space-y-4">
+            <div className="order-1 lg:order-3 lg:col-span-4 pl-0 lg:pl-6 space-y-4">
               {/* Eyebrow with Solid Orange Broom Vector */}
               <div className="flex items-center gap-2 mb-2">
                 <svg className="w-5 h-5 text-[#fba311] shrink-0" viewBox="0 0 24 24" fill="currentColor">

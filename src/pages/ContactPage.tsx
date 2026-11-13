@@ -78,7 +78,7 @@ export const ContactPage: React.FC = () => {
       {/* Contact Cards Info Row */}
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
             <div className="bg-[#f8fafc] p-6 rounded-3xl border border-gray-100 space-y-2 card-hover-xclean">
               <div className="w-10 h-10 rounded-2xl bg-[#fba311] text-[#001837] flex items-center justify-center font-bold">

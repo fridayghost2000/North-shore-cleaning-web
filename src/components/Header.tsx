@@ -53,11 +53,11 @@ export const Header: React.FC = () => {
       {/* Floating White Main Navbar Island Matching Xclean Demo 1 Header (Height: 100px, border-radius: 30px, on #f0f2f4 background) */}
       <div className={`w-full transition-all duration-300 ${
         isScrolled 
-          ? 'fixed top-0 left-0 right-0 z-50 bg-[#f0f2f4]/95 backdrop-blur-md px-4 sm:px-8 lg:px-10 py-3 shadow-sm' 
-          : 'pt-6 sm:pt-8 px-4 sm:px-8 lg:px-10 pb-0'
+          ? 'fixed top-0 left-0 right-0 z-50 bg-[#f0f2f4]/95 backdrop-blur-md px-3 sm:px-6 lg:px-10 py-2 sm:py-3 shadow-sm' 
+          : 'pt-3 sm:pt-6 lg:pt-8 px-3 sm:px-6 lg:px-10 pb-0'
       }`}>
-        <div className={`w-full max-w-[1720px] mx-auto bg-white rounded-[30px] h-[95px] sm:h-[100px] shadow-sm flex items-center justify-between px-6 sm:px-8 lg:px-10 transition-all ${
-          isScrolled ? 'h-[80px] shadow-md' : ''
+        <div className={`w-full max-w-[1720px] mx-auto bg-white rounded-2xl sm:rounded-[30px] h-[72px] sm:h-[88px] lg:h-[100px] shadow-sm flex items-center justify-between px-3.5 sm:px-6 lg:px-10 transition-all ${
+          isScrolled ? 'h-[64px] sm:h-[76px] lg:h-[80px] shadow-md' : ''
         }`}>
           
           {/* Official Company Logo (Enlarged) */}
@@ -66,13 +66,13 @@ export const Header: React.FC = () => {
               src="/logo.png" 
               alt="North Shore Cleaning Systems Inc." 
               className={`w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
-                isScrolled ? 'h-10 sm:h-12' : 'h-12 sm:h-14 lg:h-[62px]'
+                isScrolled ? 'h-7 sm:h-9 lg:h-11' : 'h-8 sm:h-10 md:h-11 lg:h-[56px]'
               }`}
             />
           </Link>
 
           {/* Desktop Navigation Links with Orange Sparkle Separators */}
-          <nav className="hidden xl:flex items-center gap-3 text-[14px] font-bold font-['Quicksand'] uppercase tracking-[0.5px]">
+          <nav className="hidden xl:flex items-center gap-1.5 2xl:gap-3 text-[12.5px] 2xl:text-[14px] font-bold font-['Quicksand'] uppercase tracking-[0.5px]">
             {navItems.map((item, index) => (
               <React.Fragment key={item.label}>
                 <div 
@@ -82,7 +82,7 @@ export const Header: React.FC = () => {
                 >
                   <Link
                     to={item.path}
-                    className={`transition-colors flex items-center gap-1 ${
+                    className={`transition-colors flex items-center gap-0.5 px-1 ${
                       isActive(item.path)
                         ? 'text-[#fba311]'
                         : 'text-[#001837] hover:text-[#fba311]'
@@ -120,7 +120,7 @@ export const Header: React.FC = () => {
 
                 {/* Orange 4-point bullet between menu items */}
                 {index < navItems.length - 1 && (
-                  <span className="text-[#fba311] text-[10px] select-none opacity-80 px-1">
+                  <span className="text-[#fba311] text-[10px] select-none opacity-80 px-0.5 2xl:px-1 hidden 2xl:inline">
                     ✦
                   </span>
                 )}
@@ -129,17 +129,17 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* Right Area: Phone + Search + Cart + Get A Quote */}
-          <div className="hidden lg:flex items-center gap-5 shrink-0">
+          <div className="hidden xl:flex items-center gap-3 2xl:gap-5 shrink-0">
             
             {/* Phone with Orange Circle Icon */}
             <a 
               href={`tel:${COMPANY_INFO.phoneRaw}`}
-              className="flex items-center gap-2.5 group"
+              className="flex items-center gap-2 group"
             >
-              <div className="w-10 h-10 rounded-full bg-[#fba311] text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
-                <Phone className="w-4 h-4 fill-white text-white" />
+              <div className="w-9 h-9 2xl:w-10 2xl:h-10 rounded-full bg-[#fba311] text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+                <Phone className="w-3.5 h-3.5 2xl:w-4 2xl:h-4 fill-white text-white" />
               </div>
-              <span className="text-sm font-bold font-['Quicksand'] text-[#001837] group-hover:text-[#fba311] transition-colors">
+              <span className="text-xs 2xl:text-sm font-bold font-['Quicksand'] text-[#001837] group-hover:text-[#fba311] transition-colors whitespace-nowrap">
                 {COMPANY_INFO.phone}
               </span>
             </a>
@@ -168,7 +168,7 @@ export const Header: React.FC = () => {
             {/* Dark Navy Pill Button: Get A Quote ↗ */}
             <Link 
               to="/contact" 
-              className="bg-[#001837] hover:bg-[#fba311] text-white font-['Quicksand'] font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-300 shadow-sm flex items-center gap-1.5 hover:shadow-md hover:scale-[1.02]"
+              className="bg-[#001837] hover:bg-[#fba311] text-white font-['Quicksand'] font-bold text-xs 2xl:text-sm px-5 2xl:px-7 py-3 2xl:py-3.5 rounded-full transition-all duration-300 shadow-sm flex items-center gap-1.5 hover:shadow-md hover:scale-[1.02] whitespace-nowrap"
             >
               <span>Get A Quote</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -176,8 +176,8 @@ export const Header: React.FC = () => {
 
           </div>
 
-          {/* Mobile Hamburger */}
-          <div className="flex items-center gap-3 lg:hidden">
+          {/* Mobile/Tablet Hamburger (Visible under xl: 1280px) */}
+          <div className="flex items-center gap-3 xl:hidden">
             <a 
               href={`tel:${COMPANY_INFO.phoneRaw}`}
               className="w-9 h-9 rounded-full bg-[#fba311] text-[#001837] flex items-center justify-center"
@@ -200,7 +200,7 @@ export const Header: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex justify-end">
+        <div className="xl:hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex justify-end">
           <div className="w-4/5 max-w-sm bg-white h-full p-6 flex flex-col justify-between overflow-y-auto shadow-2xl">
             <div>
               <div className="flex justify-between items-center pb-4 border-b border-gray-100">

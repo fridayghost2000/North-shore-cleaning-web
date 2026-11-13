@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
         
         {/* Subtle Wave Graphic on Bottom-Left from Xclean Demo 1 */}
         <div 
-          className="absolute left-0 bottom-0 w-[460px] h-[320px] pointer-events-none opacity-30 select-none bg-contain bg-no-repeat bg-left-bottom z-0"
+          className="absolute left-0 bottom-0 w-[260px] sm:w-[460px] h-[180px] sm:h-[320px] pointer-events-none opacity-25 select-none bg-contain bg-no-repeat bg-left-bottom z-0"
           style={{ backgroundImage: 'url(/footer-bg-img.png)' }}
         />
 
@@ -38,17 +38,17 @@ export const Footer: React.FC = () => {
           {/* Top Newsletter & Logo Area matching media_1794570220643_61d3c852.png */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-10 sm:pb-14">
             
-            {/* Left: Round Logo Badge from Xclean */}
+            {/* Left: Official North Shore Clean Logo */}
             <div className="flex items-center gap-4">
               <Link 
                 to="/" 
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center transition-transform hover:scale-105 duration-300"
+                className="inline-flex items-center bg-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-2xl sm:rounded-[22px] shadow-lg hover:scale-105 transition-transform duration-300"
                 title="North Shore Cleaning Systems, Inc."
               >
                 <img 
-                  src="/footer-logo.svg" 
-                  alt="North Shore Clean" 
-                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-md"
+                  src="/logo.png" 
+                  alt="North Shore Cleaning Systems, Inc." 
+                  className="h-10 sm:h-12 w-auto object-contain"
                 />
               </Link>
             </div>
@@ -74,14 +74,14 @@ export const Footer: React.FC = () => {
                       value={newsletterEmail}
                       onChange={(e) => setNewsletterEmail(e.target.value)}
                       placeholder="Enter Your Email Address"
-                      className="w-full h-[58px] sm:h-[64px] pl-6 sm:pl-8 pr-[160px] sm:pr-[180px] text-xs sm:text-sm text-[#001837] placeholder:text-gray-400 bg-white rounded-full focus:outline-none shadow-md"
+                      className="w-full h-[52px] sm:h-[64px] pl-5 sm:pl-8 pr-[130px] sm:pr-[180px] text-xs sm:text-sm text-[#001837] placeholder:text-gray-400 bg-white rounded-full focus:outline-none shadow-md"
                     />
                     <button 
                       type="submit" 
-                      className="absolute right-1 sm:right-1.5 top-1 sm:top-1.5 bottom-1 sm:bottom-1.5 bg-[#fba311] hover:bg-[#e5930b] text-white font-bold text-xs sm:text-sm px-5 sm:px-7 rounded-full flex items-center gap-2 whitespace-nowrap transition-all duration-300 shadow group cursor-pointer"
+                      className="absolute right-1 sm:right-1.5 top-1 sm:top-1.5 bottom-1 sm:bottom-1.5 bg-[#fba311] hover:bg-[#e5930b] text-white font-bold text-xs sm:text-sm px-4 sm:px-7 rounded-full flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all duration-300 shadow group cursor-pointer"
                     >
                       <span>Subscribe Now</span>
-                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </button>
                   </form>
                 )}
@@ -216,7 +216,7 @@ export const Footer: React.FC = () => {
           {/* Centered White Copyright Notch on Bottom Edge */}
           <div className="flex justify-center w-full pt-4">
             <div className="pbmit-footer-text-inner">
-              <p className="text-xs sm:text-[13px] text-[#565656] font-medium m-0 whitespace-nowrap">
+              <p className="text-xs sm:text-[13px] text-[#565656] font-medium m-0 leading-relaxed text-center">
                 Copyright © 2026 <span className="text-[#001837] font-semibold">North Shore Cleaning Systems, Inc.</span> All Rights Reserved.
               </p>
             </div>
@@ -227,7 +227,7 @@ export const Footer: React.FC = () => {
         {/* Scroll-To-Top Button in Bottom Right Corner matching screenshot */}
         <button 
           onClick={scrollToTop} 
-          className="absolute right-5 sm:right-8 bottom-4 sm:bottom-6 w-11 h-11 rounded-full bg-[#182844] border-2 border-[#fba311] text-[#fba311] hover:bg-[#fba311] hover:text-[#001837] flex items-center justify-center transition-all duration-300 shadow-xl group z-20 cursor-pointer"
+          className="absolute right-4 sm:right-8 bottom-3 sm:bottom-6 w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#182844] border-2 border-[#fba311] text-[#fba311] hover:bg-[#fba311] hover:text-[#001837] flex items-center justify-center transition-all duration-300 shadow-xl group z-20 cursor-pointer"
           title="Back to top"
           aria-label="Back to top"
         >
