@@ -1,0 +1,780 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #fba311;
+  --color-primary-hover: #e5930b;
+  --color-secondary: #001837;
+  --color-secondary-dark: #09042d;
+  --color-light-bg: #f8fafc;
+  --color-slate-subtle: #f1f5f9;
+  --color-text-main: #565656;
+  --color-text-dark: #001837;
+
+  --font-heading: 'Quicksand', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+:root {
+  --primary-color: #fba311;
+  --secondary-color: #001837;
+  --dark-color: #09042d;
+  --font-heading: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #565656;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   EXACT XCLEAN RUNNING MARQUEE ANIMATION & LIQUID HOVER REVEAL
+   ========================================================================== */
+@keyframes pbmit-marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track-xclean {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+  animation: pbmit-marquee-scroll 75s linear infinite;
+}
+
+.marquee-track-xclean:hover {
+  animation-play-state: paused;
+}
+
+/* Xclean Marquee Word with Hover Fill Reveal matching marquee-effect-style-1 */
+.marquee-word-xclean {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: -1px;
+  line-height: 1.25;
+  transition: transform 0.3s ease;
+}
+
+.marquee-word-xclean:hover {
+  transform: translateY(-2px);
+}
+
+/* Outline Word (Default Grey Outline, fills Orange on hover) */
+.marquee-word-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #cbd5e1;
+  text-shadow: 1px 1px 0 rgba(0, 24, 55, 0.05);
+}
+
+/* Solid Orange Word */
+.marquee-word-solid {
+  color: #fba311;
+  -webkit-text-fill-color: #fba311;
+  -webkit-text-stroke: 0;
+}
+
+/* Hover Liquid Sweep Fill Effect from Xclean Demo 1 */
+.marquee-word-xclean::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #fba311;
+  -webkit-text-fill-color: #fba311;
+  -webkit-text-stroke: transparent;
+  transition: max-width 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  pointer-events: none;
+}
+
+.marquee-word-xclean:hover::before {
+  max-width: 100%;
+}
+
+/* Outline Text Utility */
+.text-outline-xclean {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #cbd5e1;
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
+.text-outline-white {
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+  font-family: var(--font-heading);
+}
+
+/* ==========================================================================
+   EXACT XCLEAN HERO ANIMATIONS & KEYFRAMES (Smart Slider 3 / Pbminfotech Engine)
+   ========================================================================== */
+
+/* 1. Reveal curtain effect for eyebrow */
+@keyframes pbmit_reveal {
+  0% {
+    transform: translateX(-105%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(105%);
+  }
+}
+
+@keyframes pbmit_fade_in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 2. Zoom effect for sparkle icon */
+@keyframes pbmit_zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 3. Slide In Left for massive Heading */
+@keyframes pbmit_slide_left {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 4. Slide Up for Divider, Subtitle & Button */
+@keyframes pbmit_slide_up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Background Zoom Crossfade */
+@keyframes pbmit_bg_pan {
+  0% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+.hero-slide-bg {
+  animation: pbmit_bg_pan 8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.hero-ani-eyebrow {
+  opacity: 0;
+  animation: pbmit_fade_in 0.8s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.hero-reveal-curtain::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  transform: translateX(-105%);
+  background-color: #ffffff;
+  animation: pbmit_reveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  animation-delay: 0.35s;
+}
+
+.hero-ani-icon {
+  opacity: 0;
+  animation: pbmit_zoom 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 0.7s;
+}
+
+.hero-ani-heading {
+  color: #ffffff !important;
+  opacity: 0;
+  animation: pbmit_slide_left 0.85s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.9s;
+}
+
+.hero-ani-divider {
+  opacity: 0;
+  animation: pbmit_slide_up 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 1.2s;
+}
+
+.hero-ani-subtitle {
+  opacity: 0;
+  animation: pbmit_slide_up 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 1.4s;
+}
+
+.hero-ani-btn {
+  opacity: 0;
+  animation: pbmit_slide_up 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 1.7s;
+}
+
+/* Xclean Primary Pill Button (Orange) */
+.btn-xclean-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #fba311;
+  color: #001837;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.925rem;
+  padding: 1.05rem 2.2rem;
+  border-radius: 9999px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 18px rgba(251, 163, 17, 0.3);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-xclean-orange:hover {
+  background-color: #001837;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 24, 55, 0.35);
+}
+
+/* Xclean Navy Pill Button (Get A Quote) */
+.btn-xclean-navy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background-color: #001837;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.8rem 1.75rem;
+  border-radius: 9999px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 24, 55, 0.18);
+  cursor: pointer;
+}
+
+.btn-xclean-navy:hover {
+  background-color: #fba311;
+  color: #001837;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(251, 163, 17, 0.35);
+}
+
+/* Xclean Outline Pill Button */
+.btn-xclean-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background-color: transparent;
+  color: #001837;
+  border: 1.5px solid #001837;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.8rem 1.85rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-xclean-outline:hover {
+  background-color: #001837;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Eyebrow Tagline */
+.eyebrow-xclean {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #fba311;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/* Card hover animation */
+.card-hover-xclean {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover-xclean:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -8px rgba(0, 24, 55, 0.09);
+}
+
+/* Back to Top Floating Button */
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  background-color: #fba311;
+  color: #001837;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(251, 163, 17, 0.4);
+  transition: all 0.3s ease;
+  z-index: 50;
+  cursor: pointer;
+}
+
+.back-to-top:hover {
+  background-color: #001837;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   EXACT XCLEAN SERVICE STYLE 1 INVERTED CURVED BUTTON NOTCH
+   (Exact match to media_1794560257986_e5b2055f.jpg)
+   ========================================================================== */
+.pbmit-service-image-wrapper {
+  position: relative;
+}
+
+.pbmit-service-btn-wrapper {
+  position: absolute;
+  right: 35px;
+  bottom: -10px;
+  display: table;
+  text-align: center;
+  z-index: 10;
+  padding: 8px 8px 0 8px;
+  border-radius: 50px 50px 0 0;
+  background-color: #ffffff;
+}
+
+.pbmit-service-btn-wrapper::before,
+.pbmit-service-btn-wrapper::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: 10px;
+  height: 40px;
+  width: 20px;
+  box-shadow: 0 20px 0 0 #ffffff;
+  pointer-events: none;
+}
+
+.pbmit-service-btn-wrapper::before {
+  right: 100%;
+  border-bottom-right-radius: 20px;
+}
+
+.pbmit-service-btn-wrapper::after {
+  left: 100%;
+  border-bottom-left-radius: 20px;
+}
+
+.pbmit-service-btn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 22px;
+  z-index: 2;
+  position: relative;
+  color: #ffffff;
+  background-color: #fba311;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 12px rgba(251, 163, 17, 0.35);
+}
+
+.group:hover .pbmit-service-btn {
+  background-color: #001837;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 24, 55, 0.35);
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   EXACT XCLEAN FACTS IN DIGITS (FID STYLE 2)
+   (matches media_1794562019593_d7e3bec9.png)
+   ========================================================================== */
+.xclean-fid-number {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1.5px #001837;
+  letter-spacing: -2px;
+}
+
+.xclean-fid-suffix {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: #001837;
+  letter-spacing: -1px;
+}
+
+/* ==========================================================================
+   EXACT XCLEAN APPOINTMENT / COST CALCULATOR SECTION
+   (matches media_1794562417227_34fb08ce.jpg & media_1794563200876_8ecaf759.png)
+   ========================================================================== */
+.pbmit-appointment-form {
+  position: relative;
+  z-index: 1;
+}
+
+.pbmit-appointment-form-inner {
+  position: relative;
+  border-radius: 30px;
+  padding: 40px 24px 40px 24px;
+  background-color: transparent;
+  z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .pbmit-appointment-form-inner {
+    padding: 55px 40px 55px 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pbmit-appointment-form-inner {
+    padding: 65px 50px 105px 50px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .pbmit-appointment-form-inner {
+    padding: 75px 65px 115px 65px;
+  }
+}
+
+.pbmit-appointment-form-inner::before {
+  position: absolute;
+  content: '';
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background-color: #001837;
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .pbmit-appointment-form-inner::before {
+    -webkit-mask: url(/contact-bg-shape.png) bottom right no-repeat;
+    mask: url(/contact-bg-shape.png) bottom right no-repeat;
+  }
+}
+
+.pbmit-appointment-form-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* ==========================================================================
+   EXACT XCLEAN TESTIMONIAL STYLE 2 (matches media_1794568092257_aa5461af.png)
+   ========================================================================== */
+.pbmit-testimonial-style-2 {
+  position: relative;
+  border-radius: 30px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 24, 55, 0.12);
+  padding: 48px 36px 44px 36px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .pbmit-testimonial-style-2 {
+    padding: 56px 48px 48px 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pbmit-testimonial-style-2 {
+    padding: 64px 54px 50px 54px;
+  }
+}
+
+.pbmit-testimonial-style-2:hover {
+  border-color: rgba(0, 24, 55, 0.28);
+  box-shadow: 0 16px 36px rgba(0, 24, 55, 0.06);
+}
+
+.pbmit-testimonial-style-2 .pbmit-testimonial-text {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #001837;
+  margin: 0;
+  padding: 20px 0 28px 0;
+  border: 0;
+}
+
+@media (min-width: 640px) {
+  .pbmit-testimonial-style-2 .pbmit-testimonial-text {
+    font-size: 21px;
+    line-height: 1.55;
+  }
+}
+
+/* Signature Arched Cutout Notch for Avatar */
+.pbmit-testimonial-style-2 .pbmit-featured-img-wrapper {
+  position: absolute;
+  bottom: -1px;
+  right: 40px;
+  display: inline-flex;
+}
+
+@media (min-width: 640px) {
+  .pbmit-testimonial-style-2 .pbmit-featured-img-wrapper {
+    right: 55px;
+  }
+}
+
+.pbmit-testimonial-style-2 .pbmit-featured-wrapper {
+  position: relative;
+  border-radius: 50px 50px 0 0;
+  padding: 8px 8px 0 8px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 24, 55, 0.12);
+  border-bottom: none;
+}
+
+.pbmit-testimonial-style-2:hover .pbmit-featured-wrapper {
+  border-color: rgba(0, 24, 55, 0.28);
+}
+
+.pbmit-testimonial-style-2 .pbmit-featured-wrapper img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.pbmit-testimonial-style-2 .pbmit-featured-wrapper::before,
+.pbmit-testimonial-style-2 .pbmit-featured-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 35px;
+  width: 20px;
+  border: 1px solid rgba(0, 24, 55, 0.12);
+  border-top: none;
+  background-color: transparent;
+  box-shadow: 0 20px 0 0 #ffffff;
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+
+.pbmit-testimonial-style-2:hover .pbmit-featured-wrapper::before,
+.pbmit-testimonial-style-2:hover .pbmit-featured-wrapper::after {
+  border-color: rgba(0, 24, 55, 0.28);
+}
+
+.pbmit-testimonial-style-2 .pbmit-featured-wrapper::before {
+  border-radius: 0 0 25px 0;
+  border-left: 0;
+  right: 100%;
+}
+
+.pbmit-testimonial-style-2 .pbmit-featured-wrapper::after {
+  border-radius: 0 0 0 25px;
+  border-right: 0;
+  left: 100%;
+}
+
+/* ==========================================================================
+   EXACT XCLEAN PRICING TABLE STYLE 2 (matches media_1794569233249_ddc23a43.png)
+   ========================================================================== */
+.xclean-ptable-card {
+  position: relative;
+  border-radius: 30px;
+  padding: 48px 32px 75px 32px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (min-width: 640px) {
+  .xclean-ptable-card {
+    padding: 56px 40px 85px 40px;
+  }
+}
+
+.xclean-ptable-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 24, 55, 0.12);
+}
+
+/* Hover Accent Line Animation */
+.xclean-ptable-card .pbmit-head-wrap {
+  position: relative;
+  padding-bottom: 28px;
+  margin-bottom: 32px;
+}
+
+.xclean-ptable-card .pbmit-head-wrap::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -1px;
+  left: 0;
+  background-color: #fba311;
+  transition: width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 2;
+}
+
+.xclean-ptable-card:hover .pbmit-head-wrap::before {
+  width: 100%;
+}
+
+/* Signature Cutout Notch for Button */
+.xclean-ptable-card .pbmit-price-btn-wrap {
+  display: inline-flex;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 16px 0 16px;
+  border-radius: 28px 28px 0 0;
+  background-color: #f4f5f8;
+  z-index: 10;
+}
+
+.xclean-ptable-card .pbmit-price-btn-wrap::before,
+.xclean-ptable-card .pbmit-price-btn-wrap::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: 0;
+  height: 35px;
+  width: 20px;
+  box-shadow: 0 15px 0 0 #f4f5f8;
+  pointer-events: none;
+}
+
+.xclean-ptable-card .pbmit-price-btn-wrap::before {
+  right: 100%;
+  border-bottom-right-radius: 15px;
+}
+
+.xclean-ptable-card .pbmit-price-btn-wrap::after {
+  left: 100%;
+  border-bottom-left-radius: 15px;
+}
+
+/* ==========================================================================
+   EXACT XCLEAN FOOTER STYLE 2 & SIGNATURE COPYRIGHT TAB
+   (Exact replication of media_1794570220643_61d3c852.png & Xclean Demo 1)
+   ========================================================================== */
+.xclean-footer-card {
+  position: relative;
+  background-color: #001837;
+  border-radius: 36px;
+  background-image: url('/footer-bg-img.png');
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: auto 65%;
+}
+
+.pbmit-footer-text-inner {
+  padding: 16px 45px 14px 45px;
+  border-radius: 30px 30px 0 0;
+  background-color: #ffffff;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  z-index: 10;
+}
+
+.pbmit-footer-text-inner::before,
+.pbmit-footer-text-inner::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: 0;
+  height: 40px;
+  width: 20px;
+  box-shadow: 0 20px 0 0 #ffffff;
+  pointer-events: none;
+}
+
+.pbmit-footer-text-inner::before {
+  right: 100%;
+  border-bottom-right-radius: 20px;
+}
+
+.pbmit-footer-text-inner::after {
+  left: 100%;
+  border-bottom-left-radius: 20px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #001837;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fba311;
+}
